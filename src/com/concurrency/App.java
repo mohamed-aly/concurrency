@@ -37,5 +37,15 @@ public class App {
 
         runner1.start();
         runner2.start();
+
+        try {
+            //wait for this thread to die
+            runner1.join();
+            runner2.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Finished the tasks...");
     }
 }
